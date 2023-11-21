@@ -14,6 +14,10 @@ int main()
     RenderWindow window(VideoMode(WIN_WIDTH, WIN_HEIGHT), "Tower Defense");
     window.setVerticalSyncEnabled(true);
 
+    GameObject rect(200, 200, 50, 50, Color::Red);
+    GameObject circ(300, 300, 10, 80, 300, Color::Yellow);
+
+
     Event event;
     while (window.isOpen())
     {
@@ -22,7 +26,12 @@ int main()
             input.InputHandler(event, window);
 		}
 
+        circ.Move(deltaTime);
+        circ.CheckWindowCollision();
+
 		window.clear(Color::Black);
+
+        window.draw(*circ.getShape());
 
         window.display();
 

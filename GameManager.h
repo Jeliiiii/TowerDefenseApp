@@ -1,5 +1,6 @@
 #pragma once
 #include <SFML/Graphics.hpp>
+#include "GameObject.h"
 #include <iostream>
 #include <vector>
 #include <windows.h>
