@@ -1,5 +1,12 @@
 ﻿  GameManager.cpp
-  GameObject.cpp
-  main.cpp
-  Génération de code en cours...
-  TowerDefenseApp.vcxproj -> C:\Users\elacroix\Source\Repos\Jeliiiii\TowerDefenseApp\x64\Debug\TowerDefenseApp.exe
+C:\Users\vvallee\Documents\GitHub\TowerDefenseApp\GameManager.cpp(11,59): warning C4244: 'argument' : conversion de 'T' en 'unsigned int', perte possible de données
+          with
+          [
+              T=float
+          ]
+C:\Users\vvallee\Documents\GitHub\TowerDefenseApp\GameManager.cpp(11,49): warning C4244: 'argument' : conversion de 'T' en 'unsigned int', perte possible de données
+          with
+          [
+              T=float
+          ]
+  TowerDefenseApp.vcxproj -> C:\Users\vvallee\Documents\GitHub\TowerDefenseApp\x64\Debug\TowerDefenseApp.exe
