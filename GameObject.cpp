@@ -49,3 +49,9 @@ sf::Shape* GameObject::GetRender()
 {
 	return graphic;
 }
+
+sf::Vector2f GameObject::getOrigine() const {
+	int X = origineX;
+	int Y = origineY;
+	return sf::Vector2f(X, Y);
+}

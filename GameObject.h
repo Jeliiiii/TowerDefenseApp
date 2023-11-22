@@ -2,6 +2,7 @@
 #include <string>
 #include <iostream>
 #include <SFML/Graphics.hpp>
+#include <cmath>
 
 
 class GameObject
@@ -10,8 +11,7 @@ private:
 
 	//bool wasCollidingLastFrame;
 
-	float origineX;
-	float origineY;
+	
 
 	float width;
 	float height;
@@ -25,6 +25,9 @@ private:
 	sf::Shape* graphic;
 
 public:
+	float origineX;
+	float origineY;
+
 	typedef struct RectDesc
 	{
 		float origineX;
@@ -33,7 +36,6 @@ public:
 		float height;
 		float ancrageX = width / 2;
 		float ancrageY = height / 2;
-		float orientation = 0;
 		float speed = 0;
 		sf::Color color = sf::Color::Red;
 	};
@@ -53,4 +55,6 @@ public:
 	~GameObject();
 
 	sf::Shape* GetRender();
+
+	sf::Vector2f getOrigine() const;
 };

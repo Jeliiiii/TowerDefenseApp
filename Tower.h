@@ -2,7 +2,16 @@
 #include "GameObject.h"
 class Tower : public GameObject
 {
-	Tower(const GameObject::CircleDesc desc);
+private:
+	int damage;
+	int damageZone;
+	sf::CircleShape damageZoneShape;
+	
+
+public:
+	Tower(const GameObject::CircleDesc desc, int damage, int damageZone);
 	~Tower();
+
+	void setDamageZone();
 };
 
