@@ -11,10 +11,13 @@ class Map
 	std::vector<sf::RectangleShape*> shapes;
 
 	public:
-	Path* path;
+		Path* path;
 
 		Map(const char* name);
 		~Map();
 
 		void draw(sf::RenderWindow& window);
+
+	private:
+		void setupDrawingPath();
 };
