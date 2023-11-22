@@ -6,11 +6,14 @@ GameManager::GameManager(int w, int h)
     window.create(sf::VideoMode(w, h), "how are your balls");
     window.setFramerateLimit(60);
     window.setVerticalSyncEnabled(true);
+
+    enemy = new Enemy(map->path);
 }
 
 GameManager::~GameManager()
 {
     delete map;
+    delete enemy;
 }
 
 void GameManager::loop()
@@ -34,7 +37,7 @@ void GameManager::loop()
 
 void GameManager::update()
 {
-
+    enemy->update();
 }
 
 void GameManager::draw()
@@ -42,6 +45,8 @@ void GameManager::draw()
     window.clear();
 
     map->draw(window);
+
+    enemy->draw(window);
 
     window.display();
 }

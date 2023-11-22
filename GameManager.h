@@ -1,6 +1,7 @@
 #pragma once
 #include <vector>
 #include <SFML/Graphics/RenderWindow.hpp>
+#include "Enemy.h"
 #include "Map.h"
 
 class Vague;
@@ -8,6 +9,7 @@ class Vague;
 class GameManager
 {
 	public:
+		Enemy* enemy;
 		sf::RenderWindow window;
 		//Vague vague;
 

@@ -10,10 +10,9 @@ class Map
 	std::vector<std::vector<int>> map;
 	std::vector<sf::RectangleShape*> shapes;
 
+	public:
 	Path* path;
 
-
-	public:
 		Map(const char* name);
 		~Map();
 

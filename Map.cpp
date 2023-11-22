@@ -57,7 +57,7 @@ Map::Map(const char* name)
 	path = new Path(name);
 
 	sf::RectangleShape* get_some_help;
-	for (int i = 0; i < 20+24; i++)
+	for (int i = 0; i < 16+9; i++)
 	{
 		get_some_help = new sf::RectangleShape(sf::Vector2f(80, 80));
 		shapes.push_back(get_some_help);
@@ -66,7 +66,7 @@ Map::Map(const char* name)
 
 Map::~Map()
 {
-	for (int i = 0; i < 20+24; i++)
+	for (int i = 0; i < shapes.size(); i++)
 	{
 		delete shapes[i];
 	}
