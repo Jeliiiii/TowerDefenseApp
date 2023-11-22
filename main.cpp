@@ -1,53 +1,47 @@
-// main.cpp
 #include <SFML/Graphics.hpp>
-#include <iostream>
-#include "Enemy.h"  
-#include "Tower.h"
 #include "Grid.h"
+#include "Enemy.h"
 
-using namespace sf;
-
+#include <iostream>
 
 int main() {
+    const int rows = 10;
+    const int cols = 10;
+    const int cellSize = 50;
 
-    
+    sf::RenderWindow window(sf::VideoMode(rows * cellSize, cols * cellSize), "Tower Defense Game");
 
-    VideoMode desktop = VideoMode::getDesktopMode();
-    RenderWindow window(VideoMode(desktop.width, desktop.height), "SFML Tower Defense");
+    GameBoard gameBoard(rows, cols, cellSize);
 
-    Enemy enemy(100, 100, 100.0f);
-    Tower tower;
-    Grid grid(5, 10, window);
-
-    Clock clock;
-
-    float deltaTime = 0.f;
-
+    // Example: Create an enemy with a predefined path
+    std::vector<sf::Vector2i> enemyPath = { {0, 0}, {1, 0}, {2, 0}, {3, 0}, {4, 0}, {5, 0}, {6, 0}, {7, 0}, {8, 0}, {9, 0} };
+    Enemy enemy(enemyPath, 2.0f, cellSize);
 
     while (window.isOpen()) {
-        Event event;
+        sf::Event event;
         while (window.pollEvent(event)) {
-            if (event.type == Event::Closed)
+            if (event.type == sf::Event::Closed) {
                 window.close();
+            }
 
-            if (event.type == Event::KeyPressed) {
-                if (event.key.code == Keyboard::Escape)
-                    window.close();
+            // Handle mouse click to place towers
+            if (event.type == sf::Event::MouseButtonPressed && event.mouseButton.button == sf::Mouse::Left) {
+                sf::Vector2i mousePosition = sf::Mouse::getPosition(window);
+                int cellX = mousePosition.x / cellSize;
+                int cellY = mousePosition.y / cellSize;
+                gameBoard.placeTower(cellX, cellY);
             }
         }
 
-        enemy.update(deltaTime);
+        window.clear(sf::Color::Black); // Clear the window with black color
 
-        window.clear();
+        gameBoard.draw(window);
 
-        grid.handleInput(window);
-        grid.draw(window);
+        // Example: Draw and move the enemy
+        enemy.move();
         enemy.draw(window);
-        tower.draw(window);
 
         window.display();
-
-        deltaTime = clock.restart().asSeconds();
     }
 
     return 0;

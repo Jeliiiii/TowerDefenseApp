@@ -1,47 +1,47 @@
 #include "Grid.h"
 #include <iostream>
 
-Grid::Grid(int numRows, int numCols, sf::RenderWindow& window) : numRows(numRows), numCols(numCols), window(window) {}
+GameBoard::GameBoard(int rows, int cols, int cellSize)
+    : rows(rows), cols(cols), cellSize(cellSize) {
+    initializeGrid();
+}
 
-void Grid::handleInput(sf::RenderWindow& window) {
-    sf::Event event;
-    while (window.pollEvent(event)) {
-        if (event.type == sf::Event::Closed)
-            window.close();
+void GameBoard::draw(sf::RenderWindow& window) const {
+    for (int i = 0; i < rows; ++i) {
+        for (int j = 0; j < cols; ++j) {
+            sf::RectangleShape cell(sf::Vector2f(cellSize, cellSize));
+            cell.setPosition(i * cellSize, j * cellSize);
 
-        // Handle mouse input for tower placement
-        if (event.type == sf::Event::MouseButtonPressed) {
-            if (event.mouseButton.button == sf::Mouse::Left) {
-                sf::Vector2i mousePosition = getMouseGridPosition(window);
-                std::cout << "Placed tower at grid position (" << mousePosition.x << ", " << mousePosition.y << ")\n";
+            // Customize cell appearance based on grid values
+            if (grid[i][j] == 1) {
+                cell.setFillColor(sf::Color::Green); // Tower
             }
+            else {
+                cell.setFillColor(sf::Color::White); // Empty
+            }
+
+            cell.setOutlineColor(sf::Color::Black); // Outline color
+            cell.setOutlineThickness(1.0f); // Outline thickness
+
+            window.draw(cell);
         }
     }
 }
 
-void Grid::draw(sf::RenderWindow& window) {
-    float cellWidth = static_cast<float>(window.getSize().x) / numCols;
-    float cellHeight = static_cast<float>(window.getSize().y / 2) / numRows;  // Adjust for bottom half
-
-    // Draw grid lines
-    for (int i = 1; i < numRows; ++i) {
-        sf::VertexArray horizontalLine(sf::Lines, 2);
-        horizontalLine[0].position = sf::Vector2f(0, window.getSize().y / 2 + i * cellHeight);
-        horizontalLine[1].position = sf::Vector2f(window.getSize().x, window.getSize().y / 2 + i * cellHeight);
-        window.draw(horizontalLine);
-    }
-
-    for (int i = 1; i < numCols; ++i) {
-        sf::VertexArray verticalLine(sf::Lines, 2);
-        verticalLine[0].position = sf::Vector2f(i * cellWidth, window.getSize().y / 2);
-        verticalLine[1].position = sf::Vector2f(i * cellWidth, window.getSize().y);
-        window.draw(verticalLine);
+void GameBoard::placeTower(int x, int y) {
+    if (isValidCell(x, y)) {
+        grid[x][y] = 1; // Place tower
     }
 }
 
-sf::Vector2i Grid::getMouseGridPosition(sf::RenderWindow& window) {
-    sf::Vector2i mousePosition = sf::Mouse::getPosition(window);
-    int gridX = static_cast<int>(mousePosition.x / (static_cast<float>(window.getSize().x) / numCols));
-    int gridY = static_cast<int>((mousePosition.y - window.getSize().y / 2) / (static_cast<float>(window.getSize().y) / numRows));
-    return sf::Vector2i(gridX, gridY);
+void GameBoard::initializeGrid() {
+    grid.resize(rows, std::vector<int>(cols, 0)); // Initialize with zeros
+}
+
+bool GameBoard::isValidCell(int x, int y) const {
+    return x >= 0 && x < rows && y >= 0 && y < cols;
+}
+
+int GameBoard::getCellSize() {
+	return cellSize;
 }
