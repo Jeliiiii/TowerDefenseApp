@@ -4,12 +4,11 @@
 
 class Tower {
 public:
-    Tower();
-    Tower(sf::Vector2f position); // Constructor with position
+    Tower(const sf::Vector2f& position);
     ~Tower();
 
-    void setPosition(sf::Vector2f position);
-    void draw(sf::RenderWindow& window);
+    
+    void draw(sf::RenderWindow& window) const;
 
 private:
     sf::RectangleShape shape;

@@ -1,26 +1,16 @@
 #include "Tower.h"
 
-Tower::Tower() {
-    // Default constructor, set some default properties
-    shape.setSize(sf::Vector2f(50.0f, 50.0f));
-    shape.setFillColor(sf::Color::Red);
-    shape.setOutlineColor(sf::Color::Black);
-    shape.setOutlineThickness(2.0f);
-}
-
-Tower::Tower(sf::Vector2f position) : Tower() {
-    // Constructor with position, calls the default constructor and then sets the position
+Tower::Tower(const sf::Vector2f& position) {
+    shape.setSize(sf::Vector2f(80, 80)); // Set the size of the tower
     shape.setPosition(position);
+    shape.setFillColor(sf::Color::Magenta); // Set the initial fill color
 }
 
-Tower::~Tower() {
-    // Destructor
+Tower::~Tower()
+{
+
 }
 
-void Tower::setPosition(sf::Vector2f position) {
-    shape.setPosition(position);
-}
-
-void Tower::draw(sf::RenderWindow& window) {
+void Tower::draw(sf::RenderWindow& window) const {
     window.draw(shape);
 }

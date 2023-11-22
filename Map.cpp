@@ -1,5 +1,6 @@
 
 #include "Map.h"
+#include <iostream>
 
 using namespace std;
 
@@ -76,18 +77,18 @@ void Map::draw(sf::RenderWindow& window) {
 		for (int j = 0; j < map[i].size(); j++) {
 			shapes[i + j]->setPosition(cellSize * i, cellSize * j);
 
-			if (map[i][j] == 0) {
-				shapes[i + j]->setFillColor(sf::Color::Green); // Empty cell
-			}
-			else if (map[i][j] == 1) {
+			if (map[i][j] == 1) {
 				shapes[i + j]->setFillColor(sf::Color(175, 100, 0, 255)); // Path cell
 			}
 			else if (map[i][j] == 2) {
 				shapes[i + j]->setFillColor(sf::Color::Magenta); // Tower cell
 			}
+			else {
+				shapes[i + j]->setFillColor(sf::Color::Green); // Empty cell
+			}
 
-			// Check if the cell is interactable and set the color
-			if (isInteractable(i, j)) {
+			// Check if the cell is in the list of interactable cells and set the color
+			if (find(interactableCells.begin(), interactableCells.end(), make_pair(i, j)) != interactableCells.end()) {
 				shapes[i + j]->setFillColor(sf::Color::Blue); // Interactable cell
 			}
 
@@ -95,6 +96,10 @@ void Map::draw(sf::RenderWindow& window) {
 			shapes[i + j]->setOutlineThickness(1);
 			window.draw(*shapes[i + j]);
 		}
+	}
+
+	for (const Tower& tower : towers) {
+		tower.draw(window);
 	}
 }
 
@@ -118,7 +123,7 @@ void Map::setInteractableCell(int x, int y)
 bool Map::isInteractable(int x, int y) const
 {
 	if (isValidCell(x, y)) {
-		return map[x][y] != 1 && map[x][y] != 2;
+		return map[x][y] == 0;
 	}
 	return false;
 }
@@ -141,7 +146,12 @@ int Map::getCellSize() const
 
 void Map::placeTower(int x, int y) {
 	if (isValidCell(x, y) && isInteractable(x, y)) {
+		map[x][y] = 2;
 		Tower tower(sf::Vector2f(x * getCellSize(), y * getCellSize())); // Create a tower at the specified position
 		towers.push_back(tower);
+
+		std::cout << "Tower placed at cell (" << x << ", " << y << ")" << std::endl;
+
+
 	}
 }
