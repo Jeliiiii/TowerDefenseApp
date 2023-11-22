@@ -1,5 +1,5 @@
+#pragma once
 #include "Cell.h"
-#include "main.h"
 
 Cell::Cell(float x, float y, float w, float h, Color color)
 {
@@ -15,3 +15,29 @@ Cell::Cell(float x, float y, float w, float h, Color color)
 	//pShape->setOrigin(w / 2.0f, h / 2.0f);
 	pShape->setPosition(x, y);
 };
+
+Shape* Cell::getShape()
+{
+	return pShape;
+};
+
+int Cell::getW()
+{
+	return this->w;
+}
+
+int Cell::getH()
+{
+	return this->h;
+}
+
+void Cell::DrawAll(vector<Cell*> objects, RenderWindow& window)
+{
+	for (int i = 0; i < objects.size(); ++i)
+	{
+		for (int j = 0; j < objects.size(); ++j)
+		{
+			window.draw(*objects[i]->getShape());
+		}
+	}
+}

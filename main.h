@@ -1,10 +1,5 @@
 #pragma once
-#include <SFML/Graphics.hpp>
-#include <iostream>
-#include <vector>
+#include "GameManager.h"
 
-using namespace sf;
-using namespace std;
-
-constexpr auto WIN_WIDTH = 1280;
-constexpr auto WIN_HEIGHT = 720;
+const int WIN_WIDTH = 1280;
+const int WIN_HEIGHT = 720;
