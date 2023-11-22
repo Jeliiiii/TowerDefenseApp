@@ -27,7 +27,7 @@
     <ClCompile Include="Tower.cpp">
       <Filter>Fichiers d%27implémentation</Filter>
     </ClCompile>
-    <ClCompile Include="Grid.cpp">
+    <ClCompile Include="GameBoard.cpp">
       <Filter>Fichiers d%27implémentation</Filter>
     </ClCompile>
   </ItemGroup>
@@ -38,7 +38,7 @@
     <ClInclude Include="Tower.h">
       <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
-    <ClInclude Include="Grid.h">
+    <ClInclude Include="GameBoard.h">
       <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
   </ItemGroup>

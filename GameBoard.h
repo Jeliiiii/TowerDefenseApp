@@ -10,7 +10,12 @@ public:
 
     void draw(sf::RenderWindow& window) const;
     void placeTower(int x, int y);
-    int getCellSize();
+    int getCellSize() const ;
+
+
+    void setInteractableCells(const std::vector<sf::Vector2i>& interactableCells);
+    bool isInteractable(int x, int y) const;
+    
 
 private:
     void initializeGrid();

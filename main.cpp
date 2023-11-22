@@ -1,5 +1,5 @@
 #include <SFML/Graphics.hpp>
-#include "Grid.h"
+#include "GameBoard.h"
 #include "Enemy.h"
 
 #include <iostream>
@@ -14,8 +14,13 @@ int main() {
     GameBoard gameBoard(rows, cols, cellSize);
 
     // Example: Create an enemy with a predefined path
-    std::vector<sf::Vector2i> enemyPath = { {0, 0}, {1, 0}, {2, 0}, {3, 0}, {4, 0}, {5, 0}, {6, 0}, {7, 0}, {8, 0}, {9, 0} };
-    Enemy enemy(enemyPath, 2.0f, cellSize);
+    
+
+    //GAME LOOP
+
+    std::vector<sf::Vector2i> interactableCells = { {0, 0}, {7, 0}, {0, 7}, {5,5}, {3,3}, {6,8} };
+    gameBoard.setInteractableCells(interactableCells);
+
 
     while (window.isOpen()) {
         sf::Event event;
@@ -23,6 +28,13 @@ int main() {
             if (event.type == sf::Event::Closed) {
                 window.close();
             }
+
+            if (event.type == sf::Event::KeyPressed) {
+				// Handle keyboard input
+                if (event.key.code == sf::Keyboard::Escape) {
+					window.close();
+				}
+			}
 
             // Handle mouse click to place towers
             if (event.type == sf::Event::MouseButtonPressed && event.mouseButton.button == sf::Mouse::Left) {
@@ -35,11 +47,13 @@ int main() {
 
         window.clear(sf::Color::Black); // Clear the window with black color
 
+
+  
         gameBoard.draw(window);
 
         // Example: Draw and move the enemy
-        enemy.move();
-        enemy.draw(window);
+        /*enemy.move();*/
+        /*enemy.draw(window);*/
 
         window.display();
     }
