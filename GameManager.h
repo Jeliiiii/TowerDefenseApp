@@ -18,7 +18,7 @@ class GameManager
 
 	private:
 		bool run = true;
-		Map* map = new Map();
+		Map* map = new Map("testmap");
 
 		void update();
 
