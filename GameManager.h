@@ -1,30 +1,18 @@
 #pragma once
-#include <vector>
-#include <SFML/Graphics/RenderWindow.hpp>
-#include "Enemy.h"
-#include "Map.h"
-#include "Resources.h"
-
-class Vague;
+#include <SFML/Graphics.hpp>
+#include <iostream>
+#include "GameData.h"
 
 class GameManager
 {
-	public:
-		Enemy* enemy;
-		sf::RenderWindow window;
-		Resources* resources = new Resources();
-		//Vague vague;
+private:
+    sf::Vector2f screen = { 1280,720 };
+    GameData gameData; // GameData est une classe qui contient les vecteurs de tours et d'ennemis
 
-		GameManager(int w, int h);
-		~GameManager();
+public:
+    sf::RenderWindow window;
 
-		void loop();
-
-	private:
-		bool run = true;
-		Map* map = new Map("testmap");
-
-		void update();
-
-		void draw();
+    GameManager();
+    ~GameManager();
+    void Loop();
 };

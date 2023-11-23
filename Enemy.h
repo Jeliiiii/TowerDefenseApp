@@ -1,24 +1,23 @@
 #pragma once
-#include "SFML/Graphics/CircleShape.hpp"
-#include <SFML/Graphics/RenderWindow.hpp>
-#include "Path.h"
+#include "GameObject.h"
+#include "Map.h"
 
-class Enemy
+class Enemy : public GameObject
 {
-	sf::CircleShape* shape;
-	Path* path;
-	sf::Vector2f last_point;
-	float timer = 0;
-	int progress = 0;
-	float speed = 4.f;
+private:
+    int health;
 
-	public:
-		Enemy(Path* p);
-		~Enemy();
+public:
+    // Constructeur utilisant GameObject::RectDesc
+    Enemy(const GameObject::RectDesc& desc, int health);
 
-		void update();
-		void draw(sf::RenderWindow& window);
+    // Méthode pour recevoir des dégâts
+    void receiveDamage(int damage);
+    bool die();
 
-	private:
-		float lerp(float start_pos, float end_pos, float time);
+    sf::Vector2f getPosition() const;
+    void setPosition(float x, float y);
+
+    void moveAlongPath(const Map& map);
 };
+

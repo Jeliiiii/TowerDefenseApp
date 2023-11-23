@@ -1,50 +1,45 @@
 #include "Enemy.h"
 
-Enemy::Enemy(Path* p)
+Enemy::Enemy(const GameObject::RectDesc& desc, int health) : GameObject(desc), health(health)
 {
-	shape = new sf::CircleShape(10.f);
-	shape->setFillColor(sf::Color::Black);
-	shape->setOrigin(0.5f * 20.f, 0.5f * 20.f);
-
-	shape->setPosition(sf::Vector2f(80*p->points[0].x+40, 80*p->points[0].y+40));
-	last_point = sf::Vector2f(p->points[0].x, p->points[0].y);
-	progress += 1;
-
-	path = p;
+    // Initialisation supplémentaire si nécessaire
 }
 
-Enemy::~Enemy()
+void Enemy::receiveDamage(int damage)
 {
-	delete shape;
+    this->health -= damage; 
 }
 
-void Enemy::update()
+bool Enemy::die()
 {
-	timer += 0.01f * speed;
-	sf::Vector2f pos = shape->getPosition();
-	//sf::Vector2f direction = path->points[progress] - last_point;
-	if (timer <= 1.f)
-	{
-		float x = lerp(80 * last_point.x + 40, 80 * path->points[progress].x+40, timer);
-		float y = lerp(80 * last_point.y + 40, 80 * path->points[progress].y + 40, timer);
-		shape->setPosition(sf::Vector2f(x, y));
+	bool isDead = false;
+    if (health <= 0) {
+		isDead = true;
 	}
-	else {
-		if (progress < path->points.size()-1)
-		{
-			last_point = sf::Vector2f(path->points[progress].x, path->points[progress].y);
-			progress += 1;
-			timer = 0;
-		}
-	}
+	return isDead;
 }
 
-void Enemy::draw(sf::RenderWindow& window)
-{
-	window.draw(*shape);
+void Enemy::setPosition(float x, float y) {
+    // Assurez-vous que 'graphic' est le composant graphique de l'ennemi
+    graphic->setPosition(x, y);
 }
 
-float Enemy::lerp(float start_value, float end_value, float time)
-{
-	return (start_value + (end_value - start_value) * time);
+sf::Vector2f Enemy::getPosition() const {
+    // Assurez-vous que 'graphic' est le composant graphique de l'ennemi
+    return graphic->getPosition();
+}
+
+void Enemy::moveAlongPath(const Map& map) {
+    // Exemple de logique de déplacement
+    // Obtenez la position actuelle de l'ennemi
+    int currentX = getPosition().x / map.getCellSize();
+    int currentY = getPosition().y / map.getCellSize();
+
+    // Vérifiez les cellules voisines pour trouver la prochaine étape
+    // Cette logique doit être adaptée en fonction de la conception de votre jeu
+    if (map.isValidCell(currentX, currentY + 1) && map.map[currentX][currentY + 1] == 1) {
+        // Déplacez l'ennemi vers le bas
+        setPosition(getPosition().x, getPosition().y + map.getCellSize());
+    }
+    // Ajoutez des conditions similaires pour les autres directions
 }
