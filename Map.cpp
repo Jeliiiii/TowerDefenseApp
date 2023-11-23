@@ -14,7 +14,7 @@ Map::Map(const char* name)
 
 	if (name == "testmap")
 	{
-		/*map[1][0] = 1;
+		map[1][0] = 1;
 		map[1][1] = 1;
 		map[1][2] = 1;
 		map[1][3] = 1;
@@ -47,7 +47,7 @@ Map::Map(const char* name)
 		map[14][3] = 1;
 		map[14][4] = 1;
 		map[14][5] = 1;
-		map[15][5] = 1;*/
+		map[15][5] = 1;
 		//map[map.size() - 1][2] = 1;
 	}
 	else {
@@ -55,8 +55,6 @@ Map::Map(const char* name)
 	}
 
 	path = new Path(name);
-
-	setupDrawingPath();
 
 	sf::RectangleShape* get_some_help;
 	for (int i = 0; i < 16+9; i++)
@@ -71,19 +69,6 @@ Map::~Map()
 	for (int i = 0; i < shapes.size(); i++)
 	{
 		delete shapes[i];
-	}
-}
-
-void Map::setupDrawingPath()
-{
-	for (int i = 0; i < path->points.size()-1; i++)
-	{
-		sf::Vector2i case1 = path->points[i];
-		sf::Vector2i case2 = path->points[i+1];
-
-		map[case1.x][case1.y] = 1;
-		if (case2.x <= 15 && case2.y <= 8)
-			map[case2.x][case2.y] = 1;
 	}
 }
 

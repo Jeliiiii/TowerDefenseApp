@@ -1,6 +1,4 @@
 #include "Enemy.h"
-#include <iostream>
-#include <cmath>
 
 Enemy::Enemy(Path* p)
 {
@@ -20,17 +18,10 @@ Enemy::~Enemy()
 	delete shape;
 }
 
-float distanceBetweenPoints(const sf::Vector2f& p1, const sf::Vector2i& p2) {
-	float dx = static_cast<float>((80 * p2.x + 40) - p1.x);
-	float dy = static_cast<float>((80 * p2.y + 40) - p1.y);
-	return std::sqrt(dx * dx + dy * dy);
-}
-
 void Enemy::update()
 {
 	timer += 0.01f * speed;
 	sf::Vector2f pos = shape->getPosition();
-	std::cout << distanceBetweenPoints(last_point, path->points[progress]) << std::endl;
 	//sf::Vector2f direction = path->points[progress] - last_point;
 	if (timer <= 1.f)
 	{

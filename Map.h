@@ -2,7 +2,7 @@
 
 #include <vector>
 #include "SFML\Graphics\RectangleShape.hpp"
-#include <SFML/Graphics/RenderWindow.hpp>
+#include <SFML\Graphics\RenderWindow.hpp>
 #include "Path.h"
 
 class Map
@@ -17,7 +17,4 @@ class Map
 		~Map();
 
 		void draw(sf::RenderWindow& window);
-
-	private:
-		void setupDrawingPath();
 };

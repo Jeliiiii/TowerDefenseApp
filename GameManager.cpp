@@ -27,6 +27,17 @@ void GameManager::loop()
             {
                 window.close();
             }
+            if (event.type == sf::Event::KeyPressed)
+            {
+                if (event.key.scancode == sf::Keyboard::Scan::NumpadPlus)
+                    resources->addMoney(9999);
+                else if (event.key.scancode == sf::Keyboard::Scan::NumpadMinus)
+                    resources->spendMoney(999);
+                else if (event.key.scancode == sf::Keyboard::Scan::PageUp)
+                    resources->addGold(9999);
+                else if (event.key.scancode == sf::Keyboard::Scan::PageDown)
+                    resources->spendGold(999);
+            }
         }
 
         update();
@@ -47,6 +58,8 @@ void GameManager::draw()
     map->draw(window);
 
     enemy->draw(window);
+
+    resources->draw(window);
 
     window.display();
 }

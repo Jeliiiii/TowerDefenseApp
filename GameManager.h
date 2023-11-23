@@ -3,6 +3,7 @@
 #include <SFML/Graphics/RenderWindow.hpp>
 #include "Enemy.h"
 #include "Map.h"
+#include "Resources.h"
 
 class Vague;
 
@@ -11,6 +12,7 @@ class GameManager
 	public:
 		Enemy* enemy;
 		sf::RenderWindow window;
+		Resources* resources = new Resources();
 		//Vague vague;
 
 		GameManager(int w, int h);
