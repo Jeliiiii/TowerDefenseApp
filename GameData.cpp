@@ -1,7 +1,7 @@
 #include "GameData.h"
 
 void GameData::CreateEnemy() {
-    GameObject::RectDesc EnemyDesc = { 250, 250, 50, 50, 25, 25, sf::Color::Blue };
+    GameObject::RectDesc EnemyDesc = { 120, 40, 50, 50, 25, 25, sf::Color::Blue };
 
     Enemy enemy(EnemyDesc, 10);
     enemies.push_back(enemy);

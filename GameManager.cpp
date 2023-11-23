@@ -11,7 +11,7 @@ GameManager::~GameManager() {
 void GameManager::Loop() {
 
     //gameData.CreateTower(); Test de création de tour
-    //gameData.CreateEnemy(); Test de création d'ennemi
+    gameData.CreateEnemy(); //Test de création d'ennemi
 
     while (window.isOpen())
     {
@@ -40,6 +40,7 @@ void GameManager::Loop() {
         }
         for (auto& enemy : gameData.enemies) {
             window.draw(*enemy.GetRender());
+            enemy.moveAlongPath(gameData.gameMap);
         }
         window.display();
     }

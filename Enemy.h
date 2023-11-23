@@ -6,6 +6,7 @@ class Enemy : public GameObject
 {
 private:
     int health;
+    sf::Vector2i prev_point;
 
 public:
     // Constructeur utilisant GameObject::RectDesc
