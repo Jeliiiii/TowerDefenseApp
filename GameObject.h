@@ -19,8 +19,6 @@ private:
 	float ancrageX;
 	float ancrageY;
 
-	float speed;
-
 	sf::Color color;
 	sf::Shape* graphic;
 
@@ -36,7 +34,6 @@ public:
 		float height;
 		float ancrageX = width / 2;
 		float ancrageY = height / 2;
-		float speed = 0;
 		sf::Color color = sf::Color::Red;
 	};
 

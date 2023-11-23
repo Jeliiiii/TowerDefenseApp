@@ -1,20 +1,16 @@
 #pragma once
 #include <SFML/Graphics.hpp>
 #include <iostream>
-#include "Tower.h"
-#include "Enemy.h"
+#include "GameData.h"
 
 class GameManager
 {
 private:
     sf::Vector2f screen = { 1280,720 };
-    std::vector<Tower> towers;
-    std::vector<Enemy> enemies;
+    GameData gameData; // GameData est une classe qui contient les vecteurs de tours et d'ennemis
 
 public:
     GameManager();
     ~GameManager();
     void Launch();
-    void CreateTower();
-    void CreateEnemy();
 };

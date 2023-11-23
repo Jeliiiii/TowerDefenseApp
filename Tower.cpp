@@ -5,15 +5,18 @@ Tower::Tower(const GameObject::CircleDesc desc, int damage, int damageZone) : Ga
 	this->damage = damage;
 	this->damageZone = damageZone;
 
+	zoneDamage = new sf::CircleShape(damageZone);
+	zoneDamage->setOrigin(damageZone, damageZone); // Centre le cercle
+	zoneDamage->setPosition(origineX, origineY); // Positionne le cercle sur la tour
+	zoneDamage->setFillColor(sf::Color(255, 0, 0, 100)); // Couleur rouge avec transparence
+
 }
 
 Tower::~Tower()
 {
 }
 
-void Tower::setDamageZone() {
-	damageZoneShape.setRadius(damageZone);
-	damageZoneShape.setOrigin(damageZone, damageZone); // Centre le cercle
-	damageZoneShape.setPosition(origineX, origineY); // Positionne le cercle sur la tour
-	damageZoneShape.setFillColor(sf::Color(255, 0, 0, 100)); // Couleur rouge avec transparence
+sf::Shape* Tower::GetZoneDamage()
+{
+	return zoneDamage;
 }

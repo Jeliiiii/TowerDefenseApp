@@ -1,6 +1,6 @@
 ﻿  GameManager.cpp
-C:\Users\vvallee\Documents\GitHub\TowerDefenseApp\GameObject.h(41,3): warning C4091: 'typedef ' : ignoré à gauche de 'GameObject::RectDesc' quand aucune variable n'est déclarée
-C:\Users\vvallee\Documents\GitHub\TowerDefenseApp\GameObject.h(51,3): warning C4091: 'typedef ' : ignoré à gauche de 'GameObject::CircleDesc' quand aucune variable n'est déclarée
+C:\Users\vvallee\Documents\GitHub\TowerDefenseApp\GameObject.h(38,3): warning C4091: 'typedef ' : ignoré à gauche de 'GameObject::RectDesc' quand aucune variable n'est déclarée
+C:\Users\vvallee\Documents\GitHub\TowerDefenseApp\GameObject.h(48,3): warning C4091: 'typedef ' : ignoré à gauche de 'GameObject::CircleDesc' quand aucune variable n'est déclarée
 C:\Users\vvallee\Documents\GitHub\TowerDefenseApp\GameManager.cpp(11,59): warning C4244: 'argument' : conversion de 'T' en 'unsigned int', perte possible de données
           with
           [
@@ -11,14 +11,25 @@ C:\Users\vvallee\Documents\GitHub\TowerDefenseApp\GameManager.cpp(11,49): warnin
           [
               T=float
           ]
-  Tower.cpp
-C:\Users\vvallee\Documents\GitHub\TowerDefenseApp\GameObject.h(41,3): warning C4091: 'typedef ' : ignoré à gauche de 'GameObject::RectDesc' quand aucune variable n'est déclarée
-C:\Users\vvallee\Documents\GitHub\TowerDefenseApp\GameObject.h(51,3): warning C4091: 'typedef ' : ignoré à gauche de 'GameObject::CircleDesc' quand aucune variable n'est déclarée
-C:\Users\vvallee\Documents\GitHub\TowerDefenseApp\Tower.cpp(15,28): warning C4244: 'argument' : conversion de 'int' en 'float', perte possible de données
-C:\Users\vvallee\Documents\GitHub\TowerDefenseApp\Tower.cpp(16,40): warning C4244: 'argument' : conversion de 'int' en 'float', perte possible de données
-C:\Users\vvallee\Documents\GitHub\TowerDefenseApp\Tower.cpp(16,28): warning C4244: 'argument' : conversion de 'int' en 'float', perte possible de données
+C:\Users\vvallee\Documents\GitHub\TowerDefenseApp\GameManager.cpp(28,90): warning C4244: 'argument' : conversion de 'int' en 'float', perte possible de données
+C:\Users\vvallee\Documents\GitHub\TowerDefenseApp\GameManager.cpp(28,69): warning C4244: 'argument' : conversion de 'int' en 'float', perte possible de données
+  GameObject.cpp
+C:\Users\vvallee\Documents\GitHub\TowerDefenseApp\GameObject.h(38,3): warning C4091: 'typedef ' : ignoré à gauche de 'GameObject::RectDesc' quand aucune variable n'est déclarée
+C:\Users\vvallee\Documents\GitHub\TowerDefenseApp\GameObject.h(48,3): warning C4091: 'typedef ' : ignoré à gauche de 'GameObject::CircleDesc' quand aucune variable n'est déclarée
+C:\Users\vvallee\Documents\GitHub\TowerDefenseApp\GameObject.cpp(53,8): warning C4244: 'initialisation' : conversion de 'const float' en 'int', perte possible de données
+C:\Users\vvallee\Documents\GitHub\TowerDefenseApp\GameObject.cpp(54,8): warning C4244: 'initialisation' : conversion de 'const float' en 'int', perte possible de données
+C:\Users\vvallee\Documents\GitHub\TowerDefenseApp\GameObject.cpp(55,25): warning C4244: 'argument' : conversion de 'int' en 'T', perte possible de données
+          with
+          [
+              T=float
+          ]
+C:\Users\vvallee\Documents\GitHub\TowerDefenseApp\GameObject.cpp(55,22): warning C4244: 'argument' : conversion de 'int' en 'T', perte possible de données
+          with
+          [
+              T=float
+          ]
   main.cpp
-C:\Users\vvallee\Documents\GitHub\TowerDefenseApp\GameObject.h(41,3): warning C4091: 'typedef ' : ignoré à gauche de 'GameObject::RectDesc' quand aucune variable n'est déclarée
-C:\Users\vvallee\Documents\GitHub\TowerDefenseApp\GameObject.h(51,3): warning C4091: 'typedef ' : ignoré à gauche de 'GameObject::CircleDesc' quand aucune variable n'est déclarée
+C:\Users\vvallee\Documents\GitHub\TowerDefenseApp\GameObject.h(38,3): warning C4091: 'typedef ' : ignoré à gauche de 'GameObject::RectDesc' quand aucune variable n'est déclarée
+C:\Users\vvallee\Documents\GitHub\TowerDefenseApp\GameObject.h(48,3): warning C4091: 'typedef ' : ignoré à gauche de 'GameObject::CircleDesc' quand aucune variable n'est déclarée
   Génération de code en cours...
   TowerDefenseApp.vcxproj -> C:\Users\vvallee\Documents\GitHub\TowerDefenseApp\x64\Debug\TowerDefenseApp.exe

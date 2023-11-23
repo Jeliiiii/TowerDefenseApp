@@ -5,13 +5,14 @@ class Tower : public GameObject
 private:
 	int damage;
 	int damageZone;
-	sf::CircleShape damageZoneShape;
+	
+	sf::Shape* zoneDamage;
 	
 
 public:
 	Tower(const GameObject::CircleDesc desc, int damage, int damageZone);
 	~Tower();
 
-	void setDamageZone();
+	sf::Shape* GetZoneDamage();
 };
 

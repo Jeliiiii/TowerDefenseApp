@@ -11,7 +11,6 @@ GameObject::GameObject(RectDesc desc)
 	this->ancrageX = desc.ancrageX;
 	this->ancrageY = desc.ancrageY;
 	
-	this->speed = desc.speed;
 	this->color = desc.color;
 
 
