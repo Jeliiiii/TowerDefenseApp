@@ -10,7 +10,9 @@ private:
     GameData gameData; // GameData est une classe qui contient les vecteurs de tours et d'ennemis
 
 public:
+    sf::RenderWindow window;
+
     GameManager();
     ~GameManager();
-    void Launch();
+    void Loop();
 };

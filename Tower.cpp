@@ -20,3 +20,8 @@ sf::Shape* Tower::GetZoneDamage()
 {
 	return zoneDamage;
 }
+
+
+sf::Vector2f Tower::getPosition() const {
+	return zoneDamage->getPosition();
+}

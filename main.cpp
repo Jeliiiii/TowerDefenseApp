@@ -4,6 +4,6 @@
 int main()
 {
     GameManager game;
-    game.Launch();
+    game.Loop();
     return 0;
 }

@@ -1,17 +1,17 @@
 #include "GameManager.h"
 
 GameManager::GameManager() {
+    window.create(sf::VideoMode(screen.x, screen.y), "Tower Defense");
+    window.setFramerateLimit(60);
+    window.setVerticalSyncEnabled(true);
 }
 GameManager::~GameManager() {
 }
 
-void GameManager::Launch() {
+void GameManager::Loop() {
 
-
-    sf::RenderWindow window(sf::VideoMode(screen.x, screen.y), "Tower Defense");
-
-    gameData.CreateTower();
-    gameData.CreateEnemy();
+    //gameData.CreateTower(); Test de création de tour
+    //gameData.CreateEnemy(); Test de création d'ennemi
 
     while (window.isOpen())
     {
@@ -31,6 +31,9 @@ void GameManager::Launch() {
         }
 
         window.clear(sf::Color::Green);
+
+        gameData.CreateMap(window);
+
         for (auto& tower : gameData.towers) {
             window.draw(*tower.GetRender());
             window.draw(*tower.GetZoneDamage());

@@ -14,5 +14,7 @@ public:
 	~Tower();
 
 	sf::Shape* GetZoneDamage();
+
+	sf::Vector2f getPosition() const;
 };
 

@@ -20,9 +20,10 @@ private:
 	float ancrageY;
 
 	sf::Color color;
-	sf::Shape* graphic;
+	
 
 public:
+	sf::Shape* graphic;
 	float origineX;
 	float origineY;
 

@@ -1,5 +1,6 @@
 #pragma once
 #include "GameObject.h"
+#include "Map.h"
 
 class Enemy : public GameObject
 {
@@ -13,6 +14,10 @@ public:
     // Méthode pour recevoir des dégâts
     void receiveDamage(int damage);
     bool die();
-    // Éventuellement, d'autres méthodes spécifiques aux ennemis
+
+    sf::Vector2f getPosition() const;
+    void setPosition(float x, float y);
+
+    void moveAlongPath(const Map& map);
 };
 
