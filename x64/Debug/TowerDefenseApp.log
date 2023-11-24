@@ -1,5 +1,20 @@
 ﻿  GameManager.cpp
-  GameObject.cpp
+C:\Users\valen\Documents\GitHub\TowerDefenseApp\GameObject.h(39,3): warning C4091: 'typedef ' : ignoré à gauche de 'GameObject::RectDesc' quand aucune variable n'est déclarée
+C:\Users\valen\Documents\GitHub\TowerDefenseApp\GameObject.h(49,3): warning C4091: 'typedef ' : ignoré à gauche de 'GameObject::CircleDesc' quand aucune variable n'est déclarée
+C:\Users\valen\Documents\GitHub\TowerDefenseApp\GameManager.cpp(4,49): warning C4244: 'argument' : conversion de 'T' en 'unsigned int', perte possible de données
+          with
+          [
+              T=float
+          ]
+C:\Users\valen\Documents\GitHub\TowerDefenseApp\GameManager.cpp(4,39): warning C4244: 'argument' : conversion de 'T' en 'unsigned int', perte possible de données
+          with
+          [
+              T=float
+          ]
+C:\Users\valen\Documents\GitHub\TowerDefenseApp\GameManager.cpp(28,90): warning C4244: 'argument' : conversion de 'int' en 'float', perte possible de données
+C:\Users\valen\Documents\GitHub\TowerDefenseApp\GameManager.cpp(28,69): warning C4244: 'argument' : conversion de 'int' en 'float', perte possible de données
   main.cpp
+C:\Users\valen\Documents\GitHub\TowerDefenseApp\GameObject.h(39,3): warning C4091: 'typedef ' : ignoré à gauche de 'GameObject::RectDesc' quand aucune variable n'est déclarée
+C:\Users\valen\Documents\GitHub\TowerDefenseApp\GameObject.h(49,3): warning C4091: 'typedef ' : ignoré à gauche de 'GameObject::CircleDesc' quand aucune variable n'est déclarée
   Génération de code en cours...
-  TowerDefenseApp.vcxproj -> C:\Users\elacroix\Source\Repos\Jeliiiii\TowerDefenseApp\x64\Debug\TowerDefenseApp.exe
+  TowerDefenseApp.vcxproj -> C:\Users\valen\Documents\GitHub\TowerDefenseApp\x64\Debug\TowerDefenseApp.exe
